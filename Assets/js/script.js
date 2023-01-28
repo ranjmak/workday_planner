@@ -1,4 +1,4 @@
-
+$(document).ready(function() {
     var daySchedule = ["9am","10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"];
     var scheduledEvents = [];
     $("#currentDate").text(moment().format("dddd, MMMM Do"));
@@ -38,3 +38,13 @@
         $("#eventSave"+i).on("click", eventSave);
 
     }
+    function eventSave() {
+        for (var i = 0; i < scheduledEvents.length; i++) {
+            scheduledEvents[i] = $("#textSchedule"+i).val();
+        }
+        localStorage.setItem("scheduledEvents", JSON.stringify(scheduledEvents));
+        console.log("before: ",$("#saveMsg span").text());
+        $("#saveMsg span").text("The schedule has been saved");
+        console.log("after: ",$("#saveMsg span").text());
+    }
+});
