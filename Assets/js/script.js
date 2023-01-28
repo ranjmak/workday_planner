@@ -19,3 +19,22 @@
         return false;
     }
 
+    for(var i = 0; i < daySchedule.length; i++) { 
+        $("#"+i+"a").append("<div class='col-md-1' id='scheduleTime'><p>"+daySchedule[i]+"</p></div>"+
+                        "<form class='col-md-10' id='formSchedule"+i+"'><div class='form-group'><textarea class='col-md-10 description scheduleText' rows='3' id='textSchedule"+i+"'></textarea></div></form>"+
+                        "<button class='col-md-1 saveBtn' id='eventSave"+i+"'><i class='fa fa-save' style='font-size:24px'></i></button>");
+
+        if(i+9 < currentHour) {
+            $("#textSchedule"+i).addClass("past 'form-control' required");
+        }
+        else if(i+9 == currentHour) {
+            $("#textSchedule"+i).addClass("present 'form-control' required");
+        }
+        else {
+            $("#textSchedule"+i).addClass("future 'form-control' required");
+        }
+
+        $("#textSchedule"+i).val(scheduledEvents[i]);
+        $("#eventSave"+i).on("click", eventSave);
+
+    }
