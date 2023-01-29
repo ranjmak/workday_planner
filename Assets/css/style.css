@@ -31,6 +31,15 @@ body {
     height: 79px;
   }
   
+  /*
+  .col-xs-3 {
+    max-width: 100%;
+  }
+  .col-xs-6 {
+    max-width: 100%;
+  }
+  */
+
   .jumbotron {
     text-align: center;
     background-color: transparent;
@@ -78,13 +87,18 @@ body {
     background: #77dd77;
     color: white;
   }
-  
+/*
+  #scheduleTime {
+    width: 10% !important;
+  }
+*/
   .saveBtn {
     border-left: 1px solid black;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     background-color: #06aed5;
     color: white;
+   /* width: 20% !important; */
   }
   
   .fa-save:hover{
@@ -105,3 +119,5 @@ body {
   .fa-check {
     color: green;
   }
+
+

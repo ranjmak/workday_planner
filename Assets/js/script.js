@@ -20,9 +20,9 @@ $(document).ready(function() {
     }
 
     for(var i = 0; i < daySchedule.length; i++) { 
-        $("#"+i+"a").append("<div class='col-md-1' id='scheduleTime'><p>"+daySchedule[i]+"</p></div>"+
-                        "<form class='col-md-10' id='formSchedule"+i+"'><div class='form-group'><textarea class='col-md-10 description scheduleText' rows='3' id='textSchedule"+i+"'></textarea></div></form>"+
-                        "<button class='col-md-1 saveBtn' id='eventSave"+i+"'><i class='fa fa-save' data-index='"+i+"' style='font-size:24px'></i></button>");
+        $("#"+i+"a").append("<div class='col-md-1 col-1' id='scheduleTime'><p>"+daySchedule[i]+"</p></div>"+
+                        "<form class='col-md-10 col-10' id='formSchedule"+i+"'><div class='form-group'><textarea class='col-md-10 col-10 description scheduleText' rows='3' id='textSchedule"+i+"'></textarea></div></form>"+
+                        "<button class='col-md-1 col-1 saveBtn' id='eventSave"+i+"'><i class='fa fa-save' data-index='"+i+"' style='font-size:20px'></i></button>");
 
         if(i+9 < currentHour) {
             $("#textSchedule"+i).addClass("past 'form-control' required");
@@ -40,25 +40,16 @@ $(document).ready(function() {
     }
     function eventSave(event) {
         var index = event.target.getAttribute("data-index");
-        console.log(index);
-
-        scheduledEvents.splice(index, 1, $("#textSchedule"+index).val());
-
-/*
-        for (var i = 0; i < scheduledEvents.length; i++) {
-            scheduledEvents[i] = $("#textSchedule"+i).val();
+        var scheduleText = $("#textSchedule"+index).val();
+        if (scheduleText) {
+            scheduledEvents.splice(index, 1, $("#textSchedule"+index).val());
+            localStorage.setItem("scheduledEvents", JSON.stringify(scheduledEvents));
+            $("#msgSaved").append("<div class='col-md-12 msgSaved'><p>The scheduled event has been saved <i class='fa fa-check' aria-hidden='true'></i></p></div>");
+            //wait just enough for the user to see the saved schedule message
+            setTimeout(() => {
+                $("#msgSaved").empty();
+            }, 1000);
         }
-*/
-
-//console.log(scheduledEvents);
-        localStorage.setItem("scheduledEvents", JSON.stringify(scheduledEvents));
-
-        $("#msgSaved").append("<div class='col-md-12 msgSaved'><p>The scheduled event has been saved <i class='fa fa-check' aria-hidden='true'></i></p></div>");
-        //wait just enough for the user to see the saved schedule message
-        setTimeout(() => {
-            $("#msgSaved").empty();
-        }, 1000);
-
         return;
     }
 });

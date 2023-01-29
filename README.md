@@ -1,12 +1,10 @@
 # workday_planner
 
-# Third-Party APIs: Work Day Scheduler
+# using Third-Party APIs (bootstrap, jquery, moment, fontawesome) for a Work Day Scheduler
 
-## Your Task
+## the Task
 
-Create a simple calendar application that allows a user to save events for each hour of the day by modifying starter code. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
-
-You'll need to use the [Moment.js](https://momentjs.com/) library to work with date and time. Be sure to read the documentation carefully and concentrate on using Moment.js in the browser.
+Create a simple calendar application that allows a user to save events for each hour of the day by modifying starter code. This app runs in the browser and features dynamically updated HTML and CSS powered by jQuery.
 
 ## User Story
 
@@ -18,23 +16,29 @@ SO THAT I can manage my time effectively
 
 ## Acceptance Criteria
 
-The app should:
+The app:
 
-* Display the current day at the top of the calender when a user opens the planner.
+* Displays the current day at the top of the calender when a user opens the planner.
  
-* Present timeblocks for standard business hours when the user scrolls down.
+* Presents timeblocks for standard business hours when the user scrolls down.
  
-* Color-code each timeblock based on past, present, and future when the timeblock is viewed.
+* Color-codes each timeblock based on past(grey), present(red), and future(green) when the timeblock is viewed.
  
-* Allow a user to enter an event when they click a timeblock
+* Allows a user to enter an event when they click a timeblock
 
 * Save the event in local storage when the save button is clicked in that timeblock.
 
 * Persist events between refreshes of a page
 
-The following animation demonstrates the application functionality:
+## notes
 
-![A user clicks on slots on the color-coded calendar and edits the events.](./images/05-third-party-apis-homework-demo.gif)
+bootstrap container class and rows are used in index.html. the rest of the html is generated dynamically using jquery. An event listener is added to the save buttons and when clicked, the schedule event data is inserted into the scheduled events array and to local storage for persistence. Note that a separate clear function is not required, so to clear a scheduled event, the user has to save an empty scheduled event!
+
+## screenshots
+
+The following screenshot shows the rendered app:
+
+![screenshot of workday scheduler app](./Assets/images/screenshot-wd-sched.png)
 
 
 ## Grading Requirements
