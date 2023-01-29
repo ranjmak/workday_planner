@@ -43,8 +43,13 @@ $(document).ready(function() {
             scheduledEvents[i] = $("#textSchedule"+i).val();
         }
         localStorage.setItem("scheduledEvents", JSON.stringify(scheduledEvents));
-        console.log("before: ",$("#saveMsg span").text());
-        $("#saveMsg span").text("The schedule has been saved");
-        console.log("after: ",$("#saveMsg span").text());
+
+        $("#msgSaved").append("<div class='col-md-12 msgSaved'><p>The scheduled event has been saved <i class='fa fa-check' aria-hidden='true'></i></p></div>");
+        //wait just enough for the user to see the saved schedule message
+        setTimeout(() => {
+            $("#msgSaved").empty();
+        }, 1000);
+
+        return;
     }
 });
