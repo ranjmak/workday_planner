@@ -34,6 +34,12 @@ The app:
 
 bootstrap container class and rows are used in index.html. the rest of the html is generated dynamically using jquery. An event listener is added to the save buttons and when clicked, the schedule event data is inserted into the scheduled events array and to local storage for persistence. Note that a separate clear function is not required, so to clear a scheduled event, the user has to save an empty scheduled event!
 
+## website
+https://ranjmak.github.io/workday_planner/
+
+## Github
+https://github.com/ranjmak/workday_planner
+
 ## screenshots
 
 The following screenshot shows the rendered app:
